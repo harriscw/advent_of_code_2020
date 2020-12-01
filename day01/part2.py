@@ -20,16 +20,16 @@ for line in reader:
 #print(mylist)
 
 myiter=iter(range(len(mylist)))
-
-for i in myiter:
-	mylist2 = np.add(mylist,mylist[i])
-	gotit=any(x ==2020 for x in mylist2)
-	if(gotit==True):
-		
-		#print(mylist[i])
-		theindex = np.where(mylist2 == 2020)[0][0]
-		#print(theindex)
-		print(str(mylist[i]) + str("+") + str(mylist[theindex]) + str("=") + str(mylist[i]+mylist[theindex]))
-		print(str(mylist[i]) + str("*") + str(mylist[theindex]) + str("=") + str(mylist[i]*mylist[theindex]))
-		
-		break
+gotit=False
+try:
+	for i in iter(range(len(mylist))):
+		for j in iter(range(len(mylist))):
+			mylist2 = np.add(mylist,mylist[i]+mylist[j])
+			gotit=any(x ==2020 for x in mylist2)
+			if(gotit==True):
+				theindex = np.where(mylist2 == 2020)[0][0]
+				print(str(mylist[i]) + str("+") + str(mylist[j]) + str("+") + str(mylist[theindex]) + str("=") + str(mylist[i]+mylist[j]+mylist[theindex]))
+				print(str(mylist[i]) + str("*") + str(mylist[j]) + str("*") + str(mylist[theindex]) + str("=") + str(mylist[i]*mylist[j]*mylist[theindex]))
+				
+				raise StopIteration
+except StopIteration: pass
