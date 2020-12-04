@@ -22,7 +22,7 @@ combinedRegex = re.compile('|'.join('(?:{0})'.format(x) for x in regexes))
 finallist=[]
 for line in wrangled:
 	thematches=combinedRegex.findall(line)
-	if (len(thematches)==8)|(len(thematches)==7 and "cid" not in thematches):#either all or there or all but cid
+	if (len(thematches)==8)|(len(thematches)==7 and "cid" not in thematches):#either all there or all but cid
 		finallist.append(True)
 
 print("Total Valid Passports: " + str(sum(finallist)))

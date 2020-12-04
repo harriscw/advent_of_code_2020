@@ -14,7 +14,6 @@ for line in reader:
 #make each passport a single string in a list
 wrangled=' '.join(mylist).split("xxxx")
 wrangled = [item + ' ' for item in wrangled] #make sure there's a space at the end of each list element
-#print(wrangled)
 
 #define regular expressions to match required fields
 regexes= [
@@ -31,7 +30,6 @@ combinedRegex = re.compile('|'.join('(?:{0})'.format(x) for x in regexes))
 finallist=[]
 for line in wrangled:
 	thematches=combinedRegex.findall(line)
-	#print(thematches)
 	if len(thematches)==7:#all required fields are present
 		print(line)
 		
