@@ -26,19 +26,23 @@ for line in reader:
 ### expand trees as needed
 mywidth=len(mylist[0])
 mylength=len(mylist)
-catnum=math.ceil((mywidth/3)*(mylength))
+catnum=math.ceil((mywidth/7)*(mylength))
 
 print("Number of consecutive strings needed: " + str(catnum))
 
 newlist = []
 for i in iter(range(len(mylist))):
 	newlist.append(catnum*mylist[i])
-
-# go down the slope over 3 down 1
-xcoord=0
-trees=[]
-for i in iter(range(len(newlist))):
-	trees.append(newlist[i][xcoord]=="#")
-	xcoord += 3
 	
-print("Number of trees: " + str(sum(trees)))
+def treefinder(overnum,myby):
+	trees=[]
+	xcoord=0
+	for i in range(0, len(newlist), myby):
+		trees.append(newlist[i][xcoord]=="#")
+		xcoord += overnum
+	print("Number of trees in R" + str(myby) + "D" + str(overnum) + ": " + str(sum(trees)))
+	return(sum(trees))
+		
+print(treefinder(overnum=1,myby=1)*treefinder(overnum=3,myby=1)*treefinder(overnum=5,myby=1)*treefinder(overnum=7,myby=1)*treefinder(overnum=1,myby=2))
+		
+		
