@@ -20,7 +20,7 @@ for line in mylist:
 	mykey=split1[0]
 	myvalue=combinedRegex.findall(split1[1])#get two word values
 	tuplelist=[]
-	for myval in myvalue:#get values as tubles for networkx
+	for myval in myvalue:#get values as tuples for networkx
 		mytuple=(mykey,myval)
 		tuplelist.append(mytuple)
 	mydict[mykey]=tuplelist
