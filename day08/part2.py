@@ -25,8 +25,7 @@ for jmploc in jmps:
 
 	while True:
 		if mystep==len(mylist):#if the last instruction is being executed stop everything and print accumulator
-			print("Step: " + str(mystep) + " Instruction: " + " Accumulator: "+ str(accumulator))
-			sys.exit("Stop!")
+			sys.exit("Step: " + str(mystep) + " Accumulator: "+ str(accumulator))
 		try:
 			if mystep not in donesteps:#only execute if the step hasnt been executed before
 				donesteps.append(mystep)
