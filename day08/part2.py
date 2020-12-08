@@ -21,7 +21,8 @@ for jmploc in jmps:
 	mystep=0
 	accumulator=0
 	donesteps=[]
-	mylist[jmploc][0]='nop'
+	
+	mylist[jmploc][0]='nop' #for this iteration change "jmp" to "nop"
 
 	while True:
 		if mystep==len(mylist):#if the last instruction is being executed stop everything and print accumulator
