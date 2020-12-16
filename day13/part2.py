@@ -6,10 +6,10 @@ import math
 # I did a lot of manual work here.
 # I made bus*char manual based on the number necessary for the problem instead of a generalized porgramming solution
 # Also I checked jumps by hand.  I checked the first time when DD is seen noting the time and the difference between occurences
-# Then I increased the start point of the iterator to that time and increaed the iterator by the difference.
+# Then I increased the start point of the iterator to that time and increased the iterator by the difference.
 # the logic is that the final DDDDDDDD can only be seen if you first have DD*******.  So you can limit to check all the DD*******s.
 # Similarly you can limit to check only the DDD******s then DDDD*****s.  I did this part manually instead of programatically.
-
+# I also took a hint on this approach after my naive approach would have taken years to run
 
 #Read data 
 text_file = open("input.txt", "r")
