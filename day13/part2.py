@@ -1,7 +1,5 @@
 import sys
-import pandas as pd
 import time
-import math
 
 # I did a lot of manual work here.
 # I made bus*char manual based on the number necessary for the problem instead of a generalized porgramming solution
