@@ -1,7 +1,6 @@
 import sys
 import re
 import numpy as np
-import sympy
 
 #####
 #Read data 
@@ -126,7 +125,7 @@ while cnt<=mymat.shape[1]:
 				if(list(mymat[:,col2]).count(1)==1 and list(mymat[:,col2]).count(0)==mymat.shape[1]-1):#if you find a reduced row skip it
 					continue
 				else:
-					mymat[:,col2]-=mymat[:,col]
+					mymat[:,col2]-=mymat[:,col] #subtract out column
 	cnt+=1		
 
 print(mydict)	
