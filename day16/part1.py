@@ -5,11 +5,11 @@ import re
 text_file = open("input.txt", "r")
 lines = text_file.readlines()
 
-combinedRegex = re.compile("[0-9]+-[0-9]+")#regular expression for range of numbers
-
 ###
 #get valid numbers
 ###
+
+combinedRegex = re.compile("[0-9]+-[0-9]+")#regular expression for range of numbers
 
 myranges0=[]
 for i in range(len(lines)):
@@ -43,6 +43,11 @@ for i in range(len(lines)):
 	elif seen==True:
 		nearbytix.append(lines[i].strip("\n").split(","))
 #print(nearbytix)
+
+
+###
+# Find invalid numbers
+###
 
 notthere=[]
 for i in range(len(nearbytix)): #iterate rows in nearbytix (distinct tickets)
