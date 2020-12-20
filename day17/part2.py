@@ -21,7 +21,7 @@ hashes=[]
 for i in range(len(mylist)):
 	for j in range(len(mylist[i])):
 		if mylist[i][j]=="#":
-			hashes.append((0,i,j))
+			hashes.append((0,0,i,j))
 
 #initialize dictionary of coordinates with count 0
 mycoords=dict()
@@ -32,19 +32,24 @@ for i in hashes:
 # Define necessary functions
 ###
 
-#define a function to get all 26 [(3^3)-1] 3D neighbors
+#define a function to get all 80 [(3^4)-1] 4D neighbors
 def getneighbors(pt):
 	first=[pt[0]-1,pt[0],pt[0]+1]
 	second=[pt[1]-1,pt[1],pt[1]+1]
 	third=[pt[2]-1,pt[2],pt[2]+1]
+	fourth=[pt[3]-1,pt[3],pt[3]+1] #easy modification from pt 1
 	
 	allneighbors=[]
 	for i in first:
 		for j in second:
 			for k in third:
-				if (i,j,k) != pt:#dont append the point itself
-					allneighbors.append((i,j,k))
+				for l in fourth:#easy modification from pt 1
+					if (i,j,k,l) != pt:#dont append the point itself
+						allneighbors.append((i,j,k,l))
 	return(allneighbors)
+	
+#print("XXX",len(getneighbors((0,0,0,0))))
+#print("XXX",getneighbors((0,0,0,0)))
 
 def hashstayhash(coords):#define a function to do what happens for existing hash marks
 	for key in coords.keys():
@@ -83,6 +88,6 @@ def blankturnhash(coords):#define a function to do what happens for empty points
 cnt=1
 while cnt<=6:##Run everything for 6 cycles
 	mycoords={**hashstayhash(mycoords),**blankturnhash(mycoords)} #create a single dictionary of only hash marks
+	#print(mycoords.keys())
 	print(len(mycoords.keys()))
 	cnt+=1
-
