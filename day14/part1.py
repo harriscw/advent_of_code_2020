@@ -8,7 +8,7 @@ instrux=[]
 for i in range(len(lines)):
 	instrux.append(lines[i].strip("\n"))
 
-combinedRegex = re.compile("[0-9]+")#regular expression any strong of numbers on the LHS
+combinedRegex = re.compile("[0-9]+")#regular expression for any string of numbers on the LHS
 
 mem=dict() #store numbers in a dictionary
 for i in instrux:
