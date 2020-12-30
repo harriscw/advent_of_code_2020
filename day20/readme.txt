@@ -8,4 +8,4 @@ The general flow of this was:
 - Next iteratively fill in each row
 	- See: part2c_anyrow.py
 - Every new row/column I created I manually copied into a text file.  I know this is bad but thats what I did.
-- Finally read in the final image, remove borders, rotate to correct orientation, and grep for sea monsterss.
+- Finally read in the final image, remove borders, rotate to correct orientation, and grep for sea monsters.
