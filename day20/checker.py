@@ -1,3 +1,9 @@
+###
+# This code uses the part 1 code to create a dictioanry of all the pieces and their connections
+# I used it for double checking the output from my code I used to actually assemble to final image
+# dictionaryfrompt1.txt is the output it creates
+###
+
 import sys
 import numpy as np
 
@@ -31,6 +37,7 @@ def vflip(myborders): #borders vertically flipped
 #Now iterate over each piece and count number of shared borders
 thekeys=list(tiles.keys())
 countdict=dict()
+
 for primarykey in thekeys:#iterate over pieces
 	print("Checking Key:",primarykey)
 	matchlist=[]
@@ -49,17 +56,10 @@ for primarykey in thekeys:#iterate over pieces
 			vflipvflip= len(set(vflip(getborders(tiles[primarykey]))) & set(vflip(getborders(tiles[checkkey]))))
 			
 			#sum all the shared borders
-			matchlist.append(normalnormal+normalhflip+normalvflip+hflipnormal+hfliphflip+hflipvflip+vflipnormal+vfliphflip+vflipvflip)
-	countdict[primarykey]=(len(thekeys)-1)-matchlist.count(0)#add shared border count to dictionary
+			if normalnormal+normalhflip+normalvflip+hflipnormal+hfliphflip+hflipvflip+vflipnormal+vfliphflip+vflipvflip>0:
+				matchlist.append(checkkey)
+	countdict[primarykey]=list(set(matchlist))
 
-#Now lets find the pieces with the lowest number of shared borders
-min_val = min(countdict.values())
-min_keys=[k for k, v in countdict.items() if v == min_val]
-print("Corner Keys:",min_keys)
-
-myproduct = 1#multiply these corners together.  Is there a better way to get a list product without importing a module??
-for item in min_keys:
-	myproduct = myproduct * item
-print("Final Answer:",myproduct)
+print(countdict)
 
 sys.exit("stop!")
