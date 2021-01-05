@@ -1,3 +1,10 @@
+#the big idea here is to consider each cup's neighbor
+#for each iteration only 3 cups actually change neighbors:
+#-the current cup
+#-the destination cup
+#-the last cup in the pickup set
+#So updating 3 values in a dictionary is faster than updating each index in a list or deque
+
 import sys
 import time
 
