@@ -39,9 +39,6 @@ while moves<=10000000:
 	pickup=[indict[thenum],indict[indict[thenum]],indict[indict[indict[thenum]]]] #the three cup next to the current number
 	#print("Pickup:",pickup)
 
-	#for val in pickup:#remove these values
-	#	inlist.remove(val)
-
 	if listlen not in pickup: #rigamarole to find max and min without pickup cup
 		themax=listlen
 	elif listlen-1 not in pickup:
