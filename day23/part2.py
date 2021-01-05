@@ -4,6 +4,7 @@
 #-the destination cup
 #-the last cup in the pickup set
 #So updating 3 values in a dictionary is faster than updating each index in a list or deque
+#I definitely didn't arrive at this solution on my own, I googled around for tips
 
 import sys
 import time
