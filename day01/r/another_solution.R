@@ -3,6 +3,15 @@
 #read data
 input = as.numeric(unlist(read.delim("input.txt", header = FALSE)))
 
+input=c(
+  1721,
+  979,
+  366,
+  299,
+  675,
+  1456
+)
+
 #lets use matrix addition
 m1 = matrix(rep(input,length(input)),nrow=length(input)) #matrix where each col is your input
 m2 = t(m1) #matrix where each row is your input
@@ -33,3 +42,20 @@ input[res[1,1]]*input[res[1,2]]
 
 #add tensor A to tensor B.  Find where the sum is 2020.  backtrack to individual
 # components.
+
+m1=array(rep(mat,length(input)),rep(length(input),3)) #make an nxnxn cube by stacking your solution to p1
+dim(m1)
+
+# You want to add each element of input to your previous answer
+# so create a 3D matrix where each slice is one number from input
+vec=sort(rep(input,length(input)^2))
+m2=array(vec,rep(length(input),3))
+m2
+dim(m2)
+
+mat2=m1+m2 #add them
+which(mat2==2020, arr.ind=TRUE) # get indices
+
+mat2[5,2,2]
+m1[,,2] #original part 1 solution
+
